@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Pie Chart with percentage_tooltip",
+  "data": {
+    "values": [
+      {"category": 1, "value": 0.57},
+      {"category": "2+", "value": 0.43}
+    ]
+  },
+  "mark": {"type": "arc", "tooltip": true},
+  "encoding": {
+    "theta": {"field": "value", "type": "quantitative", "stack": "normalize"},
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {
+        "domain": ["1", "2+"],
+        "range": ["#A07AAB", "#fde725"]
+      }
+    },
+    "tooltip": [
+      {"field": "category", "type": "nominal", "title": "Languages Spoken"},
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Population",
+        "format": ".1%"
+      }
+    ]
+  },
+  "config": {"legend":{"disable": true}, "background": "transparent","font": "Montserrat" }
+}

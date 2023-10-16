@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Languages of the World</h1>
+        <div class="row">
+            <div class="column">
+                <p>
+                    Explore the fascinating world of languages that unite our global community. Delve into the diverse linguistic tapestry that spans the entire planet.
+                </p>
+            </div>
+            <div class="column">
+                <p>
+                    See the intricate mosaic of languages shaping our world, discover the beauty and richness of human communication.
+                </p>
+            </div>
+            <div class="column">
+                <p>
+                    This visualization maintains the idea of unity through language while presenting it in a more inviting and straightforward manner.
+                </p>
+            </div>
+        </div>
+        <hr> 
+        <div class="row">
+            <h2>Language Overview</h2>
+        </div>
+        <div class="row">
+            <div class = "subtext">
+                <p>Let's begin the exploration by looking at the main languages around the world.</p>
+                <br> <p><i>Hover over charts to see tool-tips with more information!</i></p>
+            </div>
+        </div>
+
+        <div class="row strict-columns">
+            <div class="column">
+                <h3>Number of Speakers</h3>
+                <div id="bubble"></div>
+            </div>
+            <div class="column">
+                <p> The Bubble Chart allows us to visualize more easily the total number of speakers in each language. <b>Mandarin</b> and <b>English</b> stand tall by far as the most spoken.</p>
+                <br>
+                <p>On the right we can see that some languages have many more words than others. Look at <b>Korean!</b>! It has nearly <b>1.2 million words</b>. That can't be an easy language to learn!</p>
+            </div>
+            <div class="column">
+                <h3>Words per Language</h3>
+                <div id="word_count"></div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="scatter-column">
+                <h3>Non-native vs Native Speakers</h3>
+                <div id="language_scatter"></div>
+                <p><i>Select a language origin to filter the graph</i></p>
+            </div>
+            <div class="column">
+                <p><b>English</b> and <b>Mandarin</b> stand out as the two most widely spoken languages globally. A nuanced insight emerges from the analysis of this graph, revealing a profound contrast in the demographic characteristics of those proficient in these languages. Notably, over half of the world's <b>English</b> speakers have acquired it as a secondary language, distinct from their mother tongue. In stark contrast, almost <b>90%</b> of <b>Mandarin</b> speakers are native speakers. This data underscores the remarkable prevalence of <b>English</b> as the most widely learned second language worldwide.</p>       
+            </div>
+        </div>
+
+        <hr> 
+        <div class="row">
+            <h2>What about Australia and the English language?</h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p>This map offers a comprehensive overview of <b>English</b> proficiency on a global scale. Notably, regions such as Australia and the United States exhibit a significant concentration of <b>English</b> speakers, in line with expectations. However, it also unveils intriguing insights, such as Iceland, a country where Icelandic is the official language, boasting an impressive <b>98%</b> population with fluency in <b>English</b>. This data underscores the widespread influence and adaptability of the <b>English</b> language.</p> 
+            </div>
+            <div class="scatter-column">
+                <h3>Countries that Speak English</h3>
+                <div id="map"></div>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h3>Australia</h3>
+                <div id="aus_pie"></div>
+            </div>
+            <div class="column">
+                <h3>Rest of World</h3>
+                <div id="world_pie"></div>
+            </div>
+            <div class="column">
+                <p>The insights from these pie charts are striking. <b>Only 22.3% of Australians are proficient in more than one language</b>, a figure considerably lower than the global average of <b>43% bilingual individuals worldwide</b>.
+                    <br>
+                    <br>
+                    <i>Are you among the bilingual individuals? Or perhaps, you've considered learning a new language? This visualization aims to inspire and motivate you on your multilingual journey.</i></p>
+                </p>        
+            </div>
+        </div>
+
+    </div>  
+</body>
+</html>

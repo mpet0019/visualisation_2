@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 200,
+  "height": 200,
+  "data": {
+    "values": [
+      {"Language": "Korean", "Approx headwords": 1149538},
+      {"Language": "Tamil", "Approx headwords": 1010008},
+      {"Language": "Portuguese", "Approx headwords": 818000},
+      {"Language": "Finnish", "Approx headwords": 800000},
+      {"Language": "Kurdish", "Approx headwords": 744139},
+      {"Language": "English", "Approx headwords": 711378},
+      {"Language": "Swedish", "Approx headwords": 600000},
+      {"Language": "Italian", "Approx headwords": 500000},
+      {"Language": "Japanese", "Approx headwords": 500000},
+      {"Language": "French", "Approx headwords": 408078},
+      {"Language": "SerboCroatian", "Approx headwords": 400000},
+      {"Language": "Dutch", "Approx headwords": 400000},
+      {"Language": "Chinese", "Approx headwords": 378103},
+      {"Language": "Persian", "Approx headwords": 343466},
+      {"Language": "Norwegian", "Approx headwords": 330000}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Language",
+      "type": "ordinal",
+      "sort": {"field": "Approx headwords", "order": "descending"},
+      "title": "Language"
+    },
+    "y": {
+      "field": "Approx headwords",
+      "type": "quantitative",
+      "title": "Number of Words"
+    },
+    "color": {"value": "#A07AAB"},
+    "tooltip": [ 
+      {"field": "Language", "title": "Language"},
+      {"field": "Approx headwords", "title": "Approximate Headwords", "format": ",d"}
+    ]
+  },
+  "config": {
+      "legend": {"disable": true},
+      "background": "transparent",
+      "font": "Montserrat",
+      "axis": {
+      "grid": false 
+  }}
+}

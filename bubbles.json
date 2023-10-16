@@ -1,0 +1,77 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "data": {
+        "name": "data",
+        "url": "https://raw.githubusercontent.com/mpet0019/viz2/main/Top%20100%20Languages.csv",
+        "format": {"type": "csv"}
+    },
+    "width": 300,
+    "height": 250,
+    "padding": {"left": 5, "right": 5, "top": 20, "bottom": 0},
+    "autosize": "none",
+    "signals": [
+        {"name": "cx", "update": "width / 2"},
+        {"name": "cy", "update": "height / 2"},
+        {
+            "name": "gravityX",
+            "value": 0.3
+        },
+        {
+            "name": "gravityY",
+            "value": 0.3
+        }
+    ],
+    "scales": [
+        {
+            "name": "size",
+            "domain": {"data": "data", "field": "Total Speakers"},
+            "range": [0.000000005, 0.000005]
+        },
+        {
+            "name": "originColor",
+            "type": "ordinal",
+            "domain": ["Afro-Asiatic", "Austronesian", "Dravidian", "Indo-European", "Japanic", "Koreanic", "Kra-Dai", "Sino-Tibetan", "Turkic", "Uralic"],
+            "range": ["#1f77b4", "#355c7d", "#4ecdc4", "#9467bd", "#bcbd22", "#ff8330", "#ff6961", "#e74c3c", "#a695c7", "#7f7f7f"]
+        }
+    ],
+    "marks": [
+        {
+            "name": "nodes",
+            "type": "symbol",
+            "from": {"data": "data"},
+            "encode": {
+                "enter": {
+                    "fill": {"scale": "originColor", "field": "Origin"},
+                    "xfocus": {"signal": "cx"},
+                    "yfocus": {"signal": "cy"}
+                },
+                "update": {
+                    "size": {"signal": "pow(2 * datum['Total Speakers'], 2)", "scale": "size"},
+                    "stroke": {"value": "white"},
+                    "strokeWidth": {"value": 1},
+                    "tooltip": {"signal": "datum", "format": ",d"}
+                }
+            },
+            "transform": [
+                {
+                    "type": "force",
+                    "iterations": 100,
+                    "static": false,
+                    "forces": [
+                        {
+                            "force": "collide",
+                            "iterations": 2,
+                            "radius": {"expr": "sqrt(datum.size) / 2"}
+                        },
+                        {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
+                        {"force": "x", "x": "xfocus", "strength": {"signal": "gravityX"}},
+                        {"force": "y", "y": "yfocus", "strength": {"signal": "gravityY"}}
+                    ]
+                }
+            ]
+        }
+    ],
+    "config": {
+            "font": "Montserrat"
+    }
+}
